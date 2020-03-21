@@ -1,12 +1,14 @@
-site_name: project_name
+site_name: werewolf
 
 nav:
     - Home: index.md
+    - Quick Start: quick-start.md
+    - Contributing: contributing.md
 
-theme: readthedocs
+theme: gitbook
 
-repo_url: Fill in your repo url here
+repo_url: https://github.com/Descent098/werewolf
 
-site_description: This is the documentation site for project_name.
+site_description: A web version of the game werewolf implemented in python using flask
 
-site_author: Your name here
+site_author: Kieran Wood
