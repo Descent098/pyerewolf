@@ -1,4 +1,4 @@
-site_name: werewolf
+site_name: pyerewolf
 
 nav:
     - Home: index.md
@@ -7,7 +7,7 @@ nav:
 
 theme: gitbook
 
-repo_url: https://github.com/Descent098/werewolf
+repo_url: https://github.com/Descent098/pyerewolf
 
 site_description: A web version of the game werewolf implemented in python using flask
 
