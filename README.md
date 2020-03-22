@@ -1,4 +1,4 @@
-# Werewolf
+# Pyerewolf
 
 A web version of the werewolf game implemented in python using Flask.
 
