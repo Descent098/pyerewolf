@@ -34,8 +34,9 @@ Run ```python routes.py``` or ```python3 routes.py```. This will then start up t
 There are a few dependencies you will need to use to get started developing:
 
 ```
-pytest 	# Used to run the test code in the tests directory
-mkdocs	# Used to create HTML versions of the markdown docs in the docs directory
+pytest 		   # Used to run the test code in the tests directory
+mkdocs		   # Used to create HTML versions of the markdown docs in the docs directory
+mkdocs-gitbook # The theme being used for user documentation
 ```
 
 Just go through and run ```pip install <name>``` or ```sudo pip3 install <name>```. These dependencies will help you to automate documentation creation, and testing.
