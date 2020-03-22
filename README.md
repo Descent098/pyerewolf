@@ -10,7 +10,7 @@ A web version of the werewolf game implemented in python using Flask.
 
 #### From source
 
-1. Clone this repo: (```git clone https://github.com/Descent098/werewolf```) or download a zip of it [https://github.com/Descent098/werewolf/archive/master.zip](https://github.com/Descent098/werewolf/archive/master.zip)
+1. Clone this repo: (```git clone https://github.com/Descent098/pyerewolf```) or download a zip of it [https://github.com/Descent098/pyerewolf/archive/master.zip](https://github.com/Descent098/pyerewolf/archive/master.zip)
 2. If you just need to run the game then install flask (```pip install flask``` or ```sudo pip3 install flask```)
 
 
@@ -23,7 +23,7 @@ Run ```python routes.py``` or ```python3 routes.py```. This will then start up t
 
 ## Additional Documentation
 
-(Work in progress) User documentation is available at [https://kieranwood.ca/werewolf](https://kieranwood.ca/werewolf)
+(Work in progress) User documentation is available at [https://kieranwood.ca/pyerewolf](https://kieranwood.ca/pyerewolf)
 
 
 
