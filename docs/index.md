@@ -1,3 +1,3 @@
-# Package name
+# Pyerewolf
 
-Welcome to the package_name docs!
+A web version of the [werewolf](https://www.playwerewolf.co/) game implemented in python using Flask.

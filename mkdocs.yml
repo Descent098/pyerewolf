@@ -4,6 +4,7 @@ nav:
     - Home: index.md
     - Quick Start: quick-start.md
     - Contributing: contributing.md
+    - How to Play: how-to-play.md
 
 theme: gitbook
 
