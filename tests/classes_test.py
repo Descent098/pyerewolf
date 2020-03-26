@@ -16,3 +16,50 @@ def test_Role_description():
     assert drunk.description() == "This role, while first and foremost taking on all the elements of a regular Villager throughout the game, also has the additional burden of only being able to communicate with gestures or noises. They may not talk during the day at all, and if they do, automatically die during that night. It may be the strategy of others (Werewolves, for instance) to pretend to be the Drunk, as the role is so unique and easily recognized."
     assert witch.description() == "This role, while first and foremost taking on all the elements of a regular Villager throughout the game, also has the additional powers of one potion and one poison, which they may use at any point throughout the game. When the Witch is added, the Moderator will wake them up separately during the night with, “The Witch comes awake…” and follows this with “The Witch brings someone back to life.” and “The Witch poisons someone.” The Witch will then point to the person they want to poison or bring back to life. While the Witch can only use their potion and poison once, each action must be said each night to retain anonymity as to what has been done. They can only use one per evening until both are gone, and have the ability to save them until a point in the game they deem fit."
     assert alpha.description() == "This role, while first and foremost taking on all the elements of a regular Werewolf throughout the game, also has the additional burden of saying the word “Werewolf” at least once during the day. This is a challenge, because everyone playing will need to actively avoid saying the word “Werewolf” in an attempt to root out the Alpha Werewolf, who must say it at least once. In order for the Moderator to know which of the Werewolfs is the Alpha, we recommend having that person raise their hand the first time the Werewolves come awake at night, and making a note. If the Alpha Werewolf fails to say “Werewolf” during the day, they automatically die the next night."
+
+def test_Game_set_roles():
+    """Validates the Game.set_roles() method.
+
+    Notes
+    -----
+    Since there are 5 players there should be two werewolfs (one an alpha), a seer
+    a doctor, and one other rando.
+    """
+    p1 = Player("Kieran")
+    p2 = Player("James")
+    p3 = Player("Frank")
+    p4 = Player("Megan")
+    p5 = Player("Janice")
+
+    for player in [p1,p2,p3,p4, p5]:
+        assert player.role == False
+
+    game = Game(p1)
+    game.players = game.set_roles([p1,p2,p3,p4, p5])
+
+    seer = False
+    doctor = False
+    alpha = False
+    werewolf = False
+
+    for player in game.players:
+        assert player.role != False # Make sure player has a role
+
+        print(player.role.name)
+
+        if player.role.value == 0:
+            werewolf = True
+
+        if player.role.value == 2:
+            seer = True
+        
+        if player.role.value == 3:
+            doctor = True
+
+        if player.role.value == 6:
+            alpha = True
+
+    # Check each role has been assigned
+    for label, role in zip(["seer", "doctor", "alpha", "werewolf"], [seer, doctor, alpha, werewolf]): 
+        print(label, role)
+        assert role == True 

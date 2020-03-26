@@ -28,17 +28,33 @@ from secrets import token_urlsafe as token_generator
 
 class Player:
     def __init__(self, name:str):
+        self.name = name
         self.living = True
         self.role = False
-        pass
 
 class Game:
-    def __init__(self):
+    def __init__(self, player:Player):
+        """Contains the current gamestate and players
+        
+        Atrtibutes
+        ----------
+        token : str
+            The game token for acessing the game
+        players : list
+            The players in the game
+        over : bool
+            True when the game has ended
+        """
         self.token = token_generator(128)
-        self.players = ()
+        self.players = [player]
+        self.over = False
+
+    def start_game(self, players:list):
+        """Does everything that is needed to initialize a game"""
+        self.players = set_roles(players)
 
 
-    def set_roles(self) -> tuple:
+    def set_roles(self, players:list) -> tuple:
         """Goes through each player and sets there role
         based on the rules for what roles are available.
         
@@ -48,7 +64,7 @@ class Game:
             Players with their roles assigned
         """
 
-        remaining_players = deepcopy(self.players)
+        remaining_players = deepcopy(players)
         shuffle(remaining_players) # Put players in random order
 
         seer = False # Changed to True once seer role has been assigned
@@ -58,13 +74,15 @@ class Game:
         alpha = False # Changed to True once alpha role has been assigned
 
         for counter, player in enumerate(remaining_players): 
-            if counter <= len(self.players)//2: # Make half the players werewolfs
+            if counter <= len(players)//2: # Make half the players werewolfs
                 if not alpha: # No alpha assigned yet
-                    player.Role(6)
+                    player.role = Role(6)
                     alpha = True
+                    continue
 
                 else: # Assign player werewolf role
                     player.role = Role(0)
+                    continue
 
             # Primary villager roles
 
@@ -103,9 +121,7 @@ class Game:
 
 @unique # Forces all enumerator values to be unique
 class Role(Enum):
-    """Signifies the role of the player
-    
-    """
+    """Signifies the role of the player"""
     werewolf = 0
     villager = 1
     seer = 2
