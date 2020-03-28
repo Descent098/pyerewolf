@@ -48,10 +48,12 @@ class Game:
         self.token = token_generator(128)
         self.players = [player]
         self.over = False
+        self.started = False
 
     def start_game(self, players:list):
         """Does everything that is needed to initialize a game"""
         self.players = set_roles(players)
+        self.started = True
 
 
     def set_roles(self, players:list) -> tuple:
@@ -108,7 +110,7 @@ class Game:
                 else:
                     player.role = Role(1)
 
-        return remaining_players
+        return tuple(remaining_players)
 
     def day(self):
         pass

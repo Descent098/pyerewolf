@@ -1,0 +1,28 @@
+{% extends "shell.html" %}
+
+{% block title %} Create{% endblock title %}
+
+{% block content %}
+
+
+<form class="form-horizontal" method=post>
+    <fieldset>
+    
+    <!-- Text input-->
+    <div class="field">
+      <label class="label" for="username">username</label>
+      <div class="control">
+        <input id="username" name="username" type="text" placeholder="username" class="input " required="">
+        
+      </div>
+    </div>
+    <!-- Button -->
+    <div class="field">
+        <label class="label" for="submit">submit</label>
+        <div class="control">
+        <button id="submit" name="submit" class="button is-primary">submit</button>
+        </div>
+    </div>
+    </fieldset>
+    </form>
+{% endblock content %}
